@@ -330,6 +330,8 @@ err0:
 		len = sendmsg(wl->sock[0], &nmsg, 0);
 	} while (len < 0 && errno == EINTR);
 
+	close(fd);
+
 	if (len < 0)
 		return -1;
 
